@@ -5,7 +5,7 @@ import authRoute from './routes/auth.js'
 import hotelsRoute from './routes/hotel.js'
 import roomsRoute from './routes/rooms.js'
 import usersRoute from './routes/users.js'
-//import cookieParser from "cookie-parser";
+import cookieParser from "cookie-parser";
 
 const app = express()
 dotenv.config()
@@ -22,7 +22,7 @@ try {
 //midlewares
 
 app.use(express.json());
-//app.use(cookieParser());
+app.use(cookieParser());
 
 app.use("/auth",authRoute);
 app.use("/hotel",hotelsRoute);
