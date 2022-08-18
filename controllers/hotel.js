@@ -1,9 +1,10 @@
 import Hotel from "../models/hotels.js"
 
 export const postHotel = async (req,res)=>{
+   const newHotel = new Hotel(req.body)
     try{
-      const updateHotel = await Hotel.findByIdAndUpdate(req.params.id, {$set : req.body}, {new:true})
-       res.status(200).json(updateHotel)
+      const saveHotel = await newHotel.save();
+       res.status(200).json(saveHotel)
     }catch(err){
      res.status(500).json(err)
     }
